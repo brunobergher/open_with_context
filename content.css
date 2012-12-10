@@ -1,0 +1,48 @@
+#open_with_context {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fae794), color-stop(1, #fff1b5));
+  border-bottom: 1px solid #a5a5a5;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  height: 20px;
+  left: 0;
+  padding: 11px 14px 7px;
+  position: fixed;
+  right: 0;
+  text-align: left;
+  top: 0;
+  vertical-align: middle;
+}
+
+#open_with_context a {
+  color: #2a4881;
+  text-decoration: underline;
+}
+
+#open_with_context a img {
+  display: inline;
+  box-shadow: rgba(0,0,0,0.5) 0 0 1px;
+  height: 16px;
+  margin: -3px 5px 0;
+  position: relative;
+  top: 3px;
+  width: 16px;
+}
+
+#open_with_context > span {
+  border-radius: 3px;
+  color: #c5b881;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  margin: -16px 0 0;
+  padding: 4px 8px;
+  right: 10px;
+  text-align: right;
+  text-shadow: rgba(255,255,255,0.4) -2px -2px 2px;
+  top: 50%;
+}
+
+#open_with_context > span:hover {
+  opacity: 0.8;
+}

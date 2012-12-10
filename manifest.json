@@ -1,0 +1,15 @@
+{
+  "name": "Open with Context",
+  "description": "Opens links in new tabs while keeping their original context.",
+  "version": "0.1",
+  "permissions": ["contextMenus", "tabs", "http://*/*", "https://*/*"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  // "icons": {
+  //   "16": "icon-bitty.png",
+  //   "48": "icon-small.png",
+  //   "128": "icon-large.png"
+  // },
+  "manifest_version": 2
+}

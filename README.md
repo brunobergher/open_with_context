@@ -1,4 +1,4 @@
-open_with_context
+Open with Context
 =================
 
-Chrome Extension to open links while keeping their original context.
+Chrome Extension to open links in new tabs while keeping their original context.
