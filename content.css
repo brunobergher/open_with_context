@@ -11,6 +11,7 @@
   text-align: left;
   top: 0;
   vertical-align: middle;
+  z-index: 9999999;
 }
 
 #open_with_context a {

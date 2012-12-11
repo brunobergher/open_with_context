@@ -11,9 +11,10 @@ function handleMenuClick(info, tabOrigin) {
       favicon: tabOrigin.favIconUrl,
       title: tabOrigin.title,
       selectionText: info.selectionText,
-      url: link,
+      url: link
     };
     chrome.tabs.onUpdated.addListener(handleUpdated);
+    chrome.extension.onMessage.addListener(handleNoticeShown);
     chrome.tabs.update(tabNew.id, { url: link, active: false });
   });
   return false;
@@ -22,13 +23,23 @@ function handleMenuClick(info, tabOrigin) {
 /**
  * Listens to when the new tab finishes navigating to the new URL
  */
-function handleUpdated(tabId, changeInfo, tab){
-  if(watchedTabs[tabId] && changeInfo.status == "loading") {
-    chrome.tabs.executeScript(null, { file: "content.js" });
-    chrome.tabs.insertCSS(null, { file: "content.css" });
-  } else if(watchedTabs[tabId] && changeInfo.status == "complete") {
-    chrome.tabs.sendMessage(tabId, watchedTabs[tabId]);
-    delete watchedTabs[tabId];
+function handleUpdated(tabId, changeInfo, tab) {
+  if(watchedTabs[tabId]) {
+    if(changeInfo.status == "loading") {
+      chrome.tabs.executeScript(null, { file: "content.js" });
+      chrome.tabs.insertCSS(null, { file: "content.css" });
+    } else if (changeInfo.status == "complete") {
+      chrome.tabs.sendMessage(tabId, watchedTabs[tabId]);
+    }
+  }
+}
+
+/**
+ * Removes pages from the watched tabs list
+ */
+function handleNoticeShown(request, sender, sendResponse) {
+  if(sender.tab && sender.tab.id) {
+    delete watchedTabs[sender.tab.id];
   }
 }
 
